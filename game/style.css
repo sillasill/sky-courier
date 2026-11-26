@@ -1,0 +1,35 @@
+/* Nusa Sky Courier — HUD and screens. Dark glass panels so the instruments
+   stay readable against bright sky, sea and jungle. */
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1a24; font-family: "Segoe UI", system-ui, sans-serif; }
+#game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+#status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.hidden { display: none !important; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; color: #f2f6f8; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+.hud-panel { position: absolute; background: rgba(8, 22, 32, .55); border: 1px solid rgba(255,255,255,.25); border-radius: 10px; padding: 10px 14px; backdrop-filter: blur(2px); }
+.hud-top-left { top: 14px; left: 14px; min-width: 150px; }
+.hud-top-right { top: 14px; right: 14px; width: 170px; text-align: center; }
+.hud-top-centre { top: 14px; left: 50%; transform: translateX(-50%); text-align: center; min-width: 340px; }
+.hud-big { font-size: 26px; font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.hud-label { font-size: 10px; letter-spacing: 2px; opacity: .75; margin-bottom: 6px; }
+.hud-row { font-size: 13px; font-weight: 600; text-align: left; margin-top: 4px; }
+.hud-bar { height: 10px; background: rgba(255,255,255,.18); border-radius: 5px; overflow: hidden; margin: 3px 0 6px; }
+#hud-throttle-fill { height: 100%; width: 0%; background: #37d67a; }
+#hud-fuel-fill { height: 100%; width: 100%; background: #ffb03a; }
+#hud-fuel-fill.low { background: #ff4d4d; }
+#hud-attitude { margin-top: 6px; background: rgba(0,0,0,.35); border-radius: 50%; }
+#hud-compass { position: relative; height: 22px; overflow: hidden; font-size: 13px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.3); }
+#hud-compass span { position: absolute; transform: translateX(-50%); }
+#hud-compass b { position: absolute; left: 50%; transform: translateX(-50%); color: #ffe066; }
+.hud-score-line { font-size: 15px; margin-top: 6px; font-variant-numeric: tabular-nums; }
+#hud-message { position: absolute; bottom: 92px; left: 50%; transform: translateX(-50%); font-size: 19px; font-weight: 600; background: rgba(8,22,32,.6); padding: 8px 18px; border-radius: 8px; white-space: nowrap; }
+#hud-warning { position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%); font-size: 17px; font-weight: 700; color: #ff6b5e; }
+
+.screen { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #f2f6f8; background: radial-gradient(ellipse at 50% 35%, rgba(10,30,48,.25), rgba(6,16,26,.78)); padding: 24px; }
+.screen h1 { font-size: 58px; letter-spacing: 6px; margin: 0 0 4px; text-shadow: 0 3px 14px rgba(0,0,0,.8); }
+.screen .subtitle { font-size: 19px; opacity: .9; margin: 0 0 22px; }
+.screen .mission { font-size: 17px; line-height: 1.55; max-width: 620px; background: rgba(8,22,32,.55); border: 1px solid rgba(255,255,255,.22); border-radius: 12px; padding: 14px 22px; }
+.screen .controls { font-size: 15px; line-height: 1.7; margin-top: 18px; opacity: .92; }
+.screen .cta { font-size: 19px; font-weight: 700; margin-top: 20px; color: #ffe066; }
+#title-best, #over-score { font-size: 16px; opacity: .9; }
+#over-text { font-size: 18px; max-width: 560px; line-height: 1.5; }

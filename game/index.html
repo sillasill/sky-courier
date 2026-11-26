@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nusa Sky Courier — a flight game</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231f7a6d'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%23ffe066'%3E%E2%9C%88%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<canvas id="game" aria-label="Nusa Sky Courier: fly the bush plane through the rings and land back at Nusa Field"></canvas>
+
+<div id="hud" aria-hidden="true">
+  <div class="hud-panel hud-top-left">
+    <div class="hud-big"><span id="hud-alt">0 ft</span></div>
+    <div class="hud-label">ALTITUDE</div>
+    <div class="hud-big"><span id="hud-speed">0 kt</span></div>
+    <div class="hud-label">AIRSPEED</div>
+    <div class="hud-big"><span id="hud-heading">090°</span></div>
+    <div class="hud-label">HEADING</div>
+  </div>
+  <div class="hud-panel hud-top-right">
+    <div class="hud-row"><span id="hud-throttle-text">THR 0%</span></div>
+    <div class="hud-bar"><div id="hud-throttle-fill"></div></div>
+    <div class="hud-row"><span id="hud-fuel-text">FUEL 100%</span></div>
+    <div class="hud-bar"><div id="hud-fuel-fill"></div></div>
+    <canvas id="hud-attitude" width="110" height="110"></canvas>
+    <div class="hud-label">ATTITUDE</div>
+  </div>
+  <div class="hud-panel hud-top-centre">
+    <div id="hud-compass"></div>
+    <div class="hud-score-line">SCORE <b id="hud-score">0</b> &nbsp;·&nbsp; <span id="hud-rings">RINGS 0/10</span> &nbsp;·&nbsp; <span id="hud-time">00:00</span></div>
+  </div>
+  <div id="hud-message"></div>
+  <div id="hud-warning"></div>
+</div>
+
+<div id="screen-title" class="screen">
+  <h1>NUSA SKY COURIER</h1>
+  <p class="subtitle">A bush-plane courier run over the Nusa islands</p>
+  <div class="mission">
+    <p>Fly the Kutilang through all <b>10 rings</b>, then bring her home and land on the strip at Nusa Field.</p>
+    <p>Rings pay <b>100 pts</b> and <b>+6 fuel</b>. A clean landing pays <b>500 + 5 per fuel left</b>.</p>
+    <p>Watch your fuel — empty tanks mean a glide, and the sea is not a runway.</p>
+  </div>
+  <div class="controls">
+    <p><b>W / ↑</b> pull up &nbsp;·&nbsp; <b>S / ↓</b> push down &nbsp;·&nbsp; <b>A D / ← →</b> bank &nbsp;·&nbsp; <b>Shift</b> throttle up &nbsp;·&nbsp; <b>Ctrl</b> throttle down</p>
+    <p>Mouse steers too &nbsp;·&nbsp; <b>C</b> cockpit / chase camera &nbsp;·&nbsp; <b>P</b> pause &nbsp;·&nbsp; <b>R</b> restart &nbsp;·&nbsp; <b>M</b> mute</p>
+  </div>
+  <p class="cta">Press <b>ENTER</b> or click to take off</p>
+  <p id="title-best"></p>
+</div>
+
+<div id="screen-pause" class="screen hidden">
+  <h1>PAUSED</h1>
+  <p class="cta">Press <b>P</b> to keep flying &nbsp;·&nbsp; <b>R</b> to restart the sortie</p>
+</div>
+
+<div id="screen-over" class="screen hidden">
+  <h1 id="over-title">DELIVERY COMPLETE!</h1>
+  <p id="over-text"></p>
+  <p id="over-score"></p>
+  <p class="cta">Press <b>ENTER</b> to fly again</p>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
